@@ -1,13 +1,14 @@
 let addButton    = document.getElementById('add');
 let removeButton = document.querySelector('.remove');
 let message      = document.getElementById('message');
-const bookList       = document.getElementById('list')
+const bookList   = document.getElementById('list')
+let counter = 0;
 const books = [];
 
 addButton.addEventListener('click', function(event) {
   event.preventDefault();
   bookList.insertAdjacentHTML('afterbegin',
-  `<div>
+  `<div id="${counter}">
     <p>Title: ${title.value}</p>
     <p>Author: ${author.value}</p>
     <button class='remove' type="button"">Remove</button>
@@ -23,7 +24,9 @@ addButton.addEventListener('click', function(event) {
   }else {
     books.push(add_collection);
     message.innerHTML = 'New book added to the collection';
+    counter += 1;
   }
-
+  
   console.log(books);
 });
+
