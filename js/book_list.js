@@ -1,11 +1,12 @@
-let addButton  = document.getElementById('add');
-let bookTitle  = document.getElementById('title').value;
-let bookAuthor = document.getElementById('author').value;
+const addButton = document.getElementById('add');
+const bookTitle = document.getElementById('title');
+const bookAuthor = document.getElementById('author');
+const remButton = document.querySelector('.remove');
 
 const books = [
   {
     title: 'Book 1',
-    author: 'Author 1'
+    author: 'Author 1' 
   },
   {
     title: 'Book 2',
@@ -17,7 +18,18 @@ const books = [
   }
 ];
 
-addButton.on('click', function() {
-  const add_collection = Object.create(books, {title: bookTitle, author: bookAuthor });
+addButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  const add_collection = Object.create(books);
+  add_collection.title = bookTitle.value
+  add_collection.author = bookAuthor.value
+  console.log(add_collection)
   books.push(add_collection);
 });
+
+remButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  const bookSearch = books.filter(title === bookTitle)
+  bookSearch.remove();
+});
+
