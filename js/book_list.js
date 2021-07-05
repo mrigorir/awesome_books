@@ -5,7 +5,7 @@ let message      = document.getElementById('message');
 const books = [
   {
     title: 'Book 1',
-    author: 'Author 1'
+    author: 'Author 1' 
   },
   {
     title: 'Book 2',
@@ -33,4 +33,3 @@ addButton.addEventListener('click', function(event) {
 
   console.log(books);
 });
-
