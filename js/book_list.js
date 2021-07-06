@@ -45,8 +45,8 @@ function addBook(obj, title, author) {
 }
 
 addButton.onclick = () => {
-  let bookTitle = document.getElementById('title').value;
-  let bookAuthor = document.getElementById('author').value;
+  const bookTitle = document.getElementById('title').value;
+  const bookAuthor = document.getElementById('author').value;
   const addCollection = { title: bookTitle, author: bookAuthor };
   addBook(addCollection, addCollection.title, addCollection.author);
 };
