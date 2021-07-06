@@ -27,7 +27,12 @@ function load() {
   });
 }
 
-function checkInputs(obj, title, author) {
+document.addEventListener('submit', (e) => {
+  e.preventDefault();
+  e.target.reset();
+});
+
+function addBook(obj, title, author) {
   if (title === '' || author === '') {
     message.innerHTML = "<p> Don't let the fields empty, please. </p>";
   } else {
@@ -39,12 +44,11 @@ function checkInputs(obj, title, author) {
   }
 }
 
-addButton.onclick = (event) => {
-  event.preventDefault();
-  const bookTitle = document.getElementById('title').value;
-  const bookAuthor = document.getElementById('author').value;
+addButton.onclick = () => {
+  let bookTitle = document.getElementById('title').value;
+  let bookAuthor = document.getElementById('author').value;
   const addCollection = { title: bookTitle, author: bookAuthor };
-  checkInputs(addCollection, addCollection.title, addCollection.author);
+  addBook(addCollection, addCollection.title, addCollection.author);
 };
 
 bookList.addEventListener('click', (e) => {
