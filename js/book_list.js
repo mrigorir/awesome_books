@@ -1,3 +1,30 @@
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+  
+  addBook(obj) {
+    if (this.title === '' || this.author === '') {
+      message.innerHTML = "<p> Don't let the fields empty, please. </p>";
+    } else {
+      books.push(obj);
+      displayBook(this.title, this.author);
+      message.innerHTML = 'New book added to the collection';
+      counter += 1;
+      localStorage.setItem('books', JSON.stringify(books));
+    }
+  }
+  
+  remove(btn, position) {
+    books.splice(position, 1);
+    btn.parentNode.remove();
+    message.innerHTML = 'A book has been removed';
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+}
+
+const newBook = new Book(this.title, this.author);
 const addButton = document.getElementById('add');
 const message = document.getElementById('message');
 const bookList = document.getElementById('list');
@@ -32,34 +59,19 @@ document.addEventListener('submit', (e) => {
   e.target.reset();
 });
 
-function addBook(obj, title, author) {
-  if (title === '' || author === '') {
-    message.innerHTML = "<p> Don't let the fields empty, please. </p>";
-  } else {
-    books.push(obj);
-    displayBook(title, author);
-    message.innerHTML = 'New book added to the collection';
-    counter += 1;
-    localStorage.setItem('books', JSON.stringify(books));
-  }
-}
-
 addButton.onclick = () => {
   const bookTitle = document.getElementById('title').value;
   const bookAuthor = document.getElementById('author').value;
-  const addCollection = { title: bookTitle, author: bookAuthor };
-  addBook(addCollection, addCollection.title, addCollection.author);
+  const newBook = new Book (bookTitle, bookAuthor);
+  newBook.addBook(newBook);
 };
 
 bookList.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove')) {
     const btn = e.target;
     const position = Array.prototype.indexOf.call(bookList.childNodes, btn.parentNode) - 1;
-    books.splice(position, 1);
-    btn.parentNode.remove();
-    message.innerHTML = 'A book has been removed';
+    newBook.remove(btn, position);
   }
-  localStorage.setItem('books', JSON.stringify(books));
 });
 
 load();
