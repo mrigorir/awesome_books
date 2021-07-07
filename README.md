@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awesome Books - Part #1
+# Awesome Books
 
 > Awesome Books acts as a CRUD library where you can store books and display them on a list using objects and arrays. The data persists thanks to localStorage functions.
 
@@ -20,6 +20,7 @@
 
 - Create a localStorage to make data persist on the browser.
 
+- Use Classes, constructor and method to get an organized, clean, and better-performance code.
 
 
 ## Built With
