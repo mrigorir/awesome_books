@@ -17,7 +17,8 @@
       "import/extensions": [ 1, {
         "js": "always", "json": "always"
       }],
-      "max-classes-per-file": ["error", 10]
+      "max-classes-per-file": ["error", 10],
+      "max-len": ["error", { "code": 150 }]
     },
     "ignorePatterns": [
       "dist/",

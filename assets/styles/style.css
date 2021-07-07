@@ -1,3 +1,52 @@
-* {
-  font-family: 'Times New Roman', Times, serif;
+.row {
+  width: 35%;
+}
+
+.pad {
+  padding: 3px 3px 0 3px;
+}
+
+body {
+  background-color: #f0f1f1;
+}
+
+li:nth-child(1n) {
+  background-color: #bebfc1;
+}
+
+li:nth-child(2n) {
+  background-color: #fff;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-normal {
+  font-weight: 500;
+}
+
+.button {
+  text-transform: capitalize;
+  color: black;
+  border-radius: 0;
+  background-color: #fff;
+  text-align: center;
+  padding: 2px 8px;
+  box-shadow: 2px 1px black;
+  font-weight: 500;
+}
+
+input[type="text"] {
+  width: 350px;
+  border-radius: 0;
+}
+
+.border-black,
+input[type="text"] {
+  border: solid 2px black;
+}
+
+input[type="text"]::placeholder {
+  color: #62778a;
 }

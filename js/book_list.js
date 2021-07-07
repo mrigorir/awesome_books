@@ -11,31 +11,46 @@ class Book {
 }
 
 class BookList {
+  static fade() {
+    setTimeout(() => { message.style = 'display: block; transition: all ease 1s; '; }, 0);
+    setTimeout(() => { message.style = 'opacity: 0; transition: all ease 1s;'; }, 1000);
+  }
+
   static addBook(obj) {
     if (obj.title === '' || obj.author === '') {
-      message.innerHTML = "<p> Don't let the fields empty, please. </p>";
+      message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded'> Don't let the fields empty, please. </p>";
+      BookList.fade();
     } else {
       books.push(obj);
       BookList.displayBook(obj.title, obj.author);
-      message.innerHTML = 'New book added to the collection';
+      message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded'> New book added to the collection </p>";
+      BookList.fade();
       localStorage.setItem('books', JSON.stringify(books));
     }
   }
 
   static remove(btn, position) {
+    const li = btn.parentNode;
     books.splice(position, 1);
+    if (Array.prototype.indexOf.call(bookList.childNodes, li) === 0) {
+      li.parentNode.classList.remove('border-black');
+    }
     btn.parentNode.remove();
-    message.innerHTML = 'A book has been removed';
+    message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded'> A book has been removed </p>";
+    BookList.fade();
     localStorage.setItem('books', JSON.stringify(books));
   }
 
   static displayBook(title, author) {
-    const div = document.createElement('div');
-    div.innerHTML = `<p> Book Title: ${title}</p>
-                     <p> Book Author: ${author}</p>
-                     <button class='remove'>Remove</button>
-                     <hr>`;
-    bookList.appendChild(div);
+    const li = document.createElement('li');
+    li.classList.add('font-bold', 'px-2', 'py-2', 'd-flex', 'align-items-center', 'justify-content-between');
+    li.innerHTML = `<div class="font-bold text-dark d-flex flex-column">
+                        <span><i class="fa fa-book pe-1 mb-1"></i> Title:     <span class="font-normal"> ${title}  </span> </span>
+                        <span class=""><i class="fa fa-user pe-1"></i> Auhor: <span class="font-normal"> ${author} </span> </span>
+                      </div>
+                      <button class='remove button border-black rounded'> Remove </button>`;
+    bookList.appendChild(li);
+    li.parentNode.classList.add('border-black');
   }
 }
 
@@ -65,7 +80,7 @@ form.addEventListener('submit', (e) => {
 bookList.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove')) {
     const btn = e.target;
-    const position = Array.prototype.indexOf.call(bookList.childNodes, btn.parentNode) - 1;
+    const position = Array.prototype.indexOf.call(bookList.childNodes, btn.parentNode.parentNode.parentNode) - 1;
     BookList.remove(btn, position);
   }
 });
