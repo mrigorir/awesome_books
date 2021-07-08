@@ -1,18 +1,18 @@
-//Variables
+// Variables
 
-const message        = document.getElementById('message');
-const bookList       = document.getElementById('list');
-const form           = document.getElementById('form');
-let   listLink       = document.getElementById('listLink');
-let   addLink        = document.getElementById('addLink');
-let   contactLink    = document.getElementById('contactLink');
-let   mainContent    = document.getElementById('main-content');
-let   addSection     = document.getElementById('add-section');
-let   listSection    = document.getElementById('list-section');
-let   contactSection = document.getElementById('contact-section');
-let   books          = [];
+const message = document.getElementById('message');
+const bookList = document.getElementById('list');
+const form = document.getElementById('form');
+const listLink = document.getElementById('listLink');
+const addLink = document.getElementById('addLink');
+const contactLink = document.getElementById('contactLink');
+const mainContent = document.getElementById('main-content');
+const addSection = document.getElementById('add-section');
+const listSection = document.getElementById('list-section');
+const contactSection = document.getElementById('contact-section');
+let books = [];
 
-//Constructor
+// Constructor
 
 class Book {
   constructor(title, author) {
@@ -21,7 +21,7 @@ class Book {
   }
 }
 
-//Classes
+// Classes
 
 class BookList {
   static fade() {
@@ -65,7 +65,6 @@ class BookList {
     bookList.appendChild(li);
     li.parentNode.classList.add('border-black');
   }
-
 }
 
 class Storage {
@@ -91,18 +90,20 @@ class ShowViews {
     switch (e.target) {
       case listLink:
         mainContent.appendChild(listSection);
-      break;
+        break;
       case addLink:
         mainContent.appendChild(addSection);
-      break;
+        break;
       case contactLink:
-        mainContent.appendChild(contactSection);  
-      break;
+        mainContent.appendChild(contactSection);
+        break;
+      default:
+        break;
     }
   }
 }
 
-//Event functions
+// Event functions
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
