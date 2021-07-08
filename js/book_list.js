@@ -1,7 +1,18 @@
-const message = document.getElementById('message');
-const bookList = document.getElementById('list');
-const form = document.getElementById('form');
-let books = [];
+//Variables
+
+const message        = document.getElementById('message');
+const bookList       = document.getElementById('list');
+const form           = document.getElementById('form');
+let   listLink       = document.getElementById('listLink');
+let   addLink        = document.getElementById('addLink');
+let   contactLink    = document.getElementById('contactLink');
+let   mainContent    = document.getElementById('main-content');
+let   addSection     = document.getElementById('add-section');
+let   listSection    = document.getElementById('list-section');
+let   contactSection = document.getElementById('contact-section');
+let   books          = [];
+
+//Constructor
 
 class Book {
   constructor(title, author) {
@@ -9,6 +20,8 @@ class Book {
     this.author = author;
   }
 }
+
+//Classes
 
 class BookList {
   static fade() {
@@ -18,12 +31,12 @@ class BookList {
 
   static addBook(obj) {
     if (obj.title === '' || obj.author === '') {
-      message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded'> Don't let the fields empty, please. </p>";
+      message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded w-100'> Don't let the fields empty, please. </p>";
       BookList.fade();
     } else {
       books.push(obj);
       BookList.displayBook(obj.title, obj.author);
-      message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded'> New book added to the collection </p>";
+      message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded w-100'> New book added to the collection </p>";
       BookList.fade();
       localStorage.setItem('books', JSON.stringify(books));
     }
@@ -36,7 +49,7 @@ class BookList {
       li.parentNode.classList.remove('border-black');
     }
     btn.parentNode.remove();
-    message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded'> A book has been removed </p>";
+    message.innerHTML = "<p class='shadow-sm border text-center font-bold p-3 rounded w-100'> A book has been removed </p>";
     BookList.fade();
     localStorage.setItem('books', JSON.stringify(books));
   }
@@ -52,6 +65,7 @@ class BookList {
     bookList.appendChild(li);
     li.parentNode.classList.add('border-black');
   }
+
 }
 
 class Storage {
@@ -67,6 +81,28 @@ class Storage {
     });
   }
 }
+
+class ShowViews {
+  static clear() {
+    mainContent.textContent = '';
+  }
+
+  static showView(e) {
+    switch (e.target) {
+      case listLink:
+        mainContent.appendChild(listSection);
+      break;
+      case addLink:
+        mainContent.appendChild(addSection);
+      break;
+      case contactLink:
+        mainContent.appendChild(contactSection);  
+      break;
+    }
+  }
+}
+
+//Event functions
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -87,4 +123,9 @@ bookList.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   Storage.load();
+});
+
+document.addEventListener('click', (e) => {
+  ShowViews.clear();
+  ShowViews.showView(e);
 });

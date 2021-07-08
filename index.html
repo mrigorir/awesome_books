@@ -14,44 +14,58 @@
           crossorigin="anonymous">
   </script>
   <script src="https://kit.fontawesome.com/9f43e9dbcb.js" crossorigin="anonymous"></script> 
-
   <title>Awesome Books</title>
 </head>
+
 <body>
-  <main class="container-fluid my-5 d-flex align-items-center justify-content-center">
+  <!-- Layout -->
+  <main class="container-fluid d-flex align-items-center justify-content-center">
     <div class="row mx-auto">
       <div class="col-md-12">
-        <!-- Main title -->
-        <header>
-          <h1 class="mb-4 text-center"> All awesome books </h1>
-        </header>
-        <!-- Books list -->
-        <section>
-          <ul id="list" class="list-unstyled rounded"></ul>
-          <div id="message"></div>
-        </section>
-        <!-- Add form -->
-        <section>
-          <div class="d-flex align-items-center justify-content-center flex-column">
+        <!-- Info Message -->
+        <div id="message"></div>
+        <div id="main-content">
+          <!-- Main Page -->
+          <section id="list-section">
             <header>
-              <h1 class="h2 mt-3">Add a new book</h1>
+              <h1 class="my-4 text-center"> All awesome books </h1>
             </header>
-            <form id="form">
-              <div class="form-group my-3">
-              <input type="text" name="title" id="title" class="form-control" placeholder="Title">
-              </div>
-              <div class="form-group my-3">
-                <input type="text" name="author" id="author" class="form-control" placeholder="Author">
-              </div>
-              <div class="form-group my-3 d-flex align-items-center justify-content-end">
-                <input type="submit" value="Add" id="add" class="button border-black">
-              </div>
-            </form>
-          </div>
-        </section>
+            <!-- Books List -->
+            <ul id="list" class="list-unstyled rounded"></ul>
+          </section>
+        </div>
       </div>
-    </div>
+    </div> 
   </main>
+  <div class="d-none">
+    <!-- Add Page -->
+    <section id="add-section">
+      <header>
+        <h1 class="my-4 text-center"> Add a new book </h1>
+      </header>
+      <div class="d-flex align-items-center justify-content-center flex-column"> 
+        <form id="form">
+          <div class="form-group my-3">
+          <input type="text" name="title" id="title" class="form-control" placeholder="Title">
+          </div>
+          <div class="form-group my-3">
+            <input type="text" name="author" id="author" class="form-control" placeholder="Author">
+          </div>
+          <div class="form-group my-3 d-flex align-items-center justify-content-end">
+            <input type="submit" value="Add" id="add" class="button border-black">
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Contact Page -->
+    <section id="contact-section">
+      <header>
+        <h1 class="my-4 text-center"> Contact Information </h1>
+      </header>
+    </section>
+  </div>
   <script src="js/book_list.js"></script>
+  
 </body>
 </html>
+
