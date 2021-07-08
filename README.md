@@ -5,7 +5,7 @@
 > Awesome Books acts as a CRUD library where you can store books and display them on a list using objects and arrays. The data persists thanks to localStorage functions.
 
 ## Main Page
-![Screenshot Main Page](assets/images/capture3.jpg)
+![Screenshot Main Page](assets/images/capture3.png)
 
 
 ## What was built in this project:
@@ -20,7 +20,7 @@
 
 - Create a localStorage to make data persist on the browser.
 
-- Use Classes, constructor and method to get an organized, clean, and better-performance code.
+- Use Classes, constructors,s, and methods to get an organized, clean, and better-performance code.
 
 - Use bootstrap and CSS to style the HTML.
 
