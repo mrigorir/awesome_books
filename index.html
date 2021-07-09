@@ -13,45 +13,124 @@
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
           crossorigin="anonymous">
   </script>
-  <script src="https://kit.fontawesome.com/9f43e9dbcb.js" crossorigin="anonymous"></script> 
-
+  <script src="https://kit.fontawesome.com/9f43e9dbcb.js" crossorigin="anonymous"></script>
+  
   <title>Awesome Books</title>
 </head>
+
 <body>
-  <main class="container-fluid my-5 d-flex align-items-center justify-content-center">
-    <div class="row mx-auto">
+  <!-- Layout -->
+  <main class="container-fluid">
+    <div class="row">
       <div class="col-md-12">
-        <!-- Main title -->
-        <header>
-          <h1 class="mb-4 text-center"> All awesome books </h1>
-        </header>
-        <!-- Books list -->
-        <section>
-          <ul id="list" class="list-unstyled rounded"></ul>
-          <div id="message"></div>
-        </section>
-        <!-- Add form -->
-        <section>
-          <div class="d-flex align-items-center justify-content-center flex-column">
-            <header>
-              <h1 class="h2 mt-3">Add a new book</h1>
-            </header>
-            <form id="form">
-              <div class="form-group my-3">
-              <input type="text" name="title" id="title" class="form-control" placeholder="Title">
-              </div>
-              <div class="form-group my-3">
-                <input type="text" name="author" id="author" class="form-control" placeholder="Author">
-              </div>
-              <div class="form-group my-3 d-flex align-items-center justify-content-end">
-                <input type="submit" value="Add" id="add" class="button border-black">
-              </div>
-            </form>
-          </div>
-        </section>
+        <!-- Navbar -->
+        <nav id="nav">
+          <ul class="navbar d-flex align-items-center justify-content-between list-unstyled p-2 mt-3 w-75 mx-auto">
+            <div class="d-flex align-items-center justify-content-center">
+              <li class="navItem p-2">
+                <a href="#" class="navLink text-dark text-decoration-none font-bold">
+                  Awesome books
+                </a>
+              </li>
+            </div>
+            <div class="d-flex align-items-center justify-content-around">
+              <li class="navItem border-dark-right py-2 px-3">
+                <a href="#" class="navLink text-decoration-none font-bold" id="listLink">
+                  List
+                </a>
+              </li>
+              <li class="navItem border-dark-right py-2 px-3">
+                <a href="#" class="navLink text-decoration-none font-bold" id="addLink">
+                  Add new
+                </a>
+              </li>
+              <li class="navItem py-2 px-3">
+                <a href="#" class="navLink text-decoration-none font-bold" id="contactLink">
+                  Contact
+                </a>
+              </li>
+            </div>
+          </ul>
+        </nav>
+        <div class="d-flex align-items-center justify-content-end mx-auto w-75">
+          <p id="time" class="text-dark font-bold"></p>
+        </div>
+        <!-- Info Message -->
+        <div id="message" class="width mx-auto"></div>
       </div>
     </div>
+    <!-- Main Views -->
+    <div class="row">
+      <div class="col-md-12">
+        <div id="main-content">
+          <!-- Main Page -->
+          <section id="list-section">
+            <header>
+              <h1 class="mb-4 mt-2 text-center"> All awesome books </h1>
+            </header>
+            <!-- Books List -->
+            <ul id="list" class="list-unstyled rounded mx-auto width"></ul>
+          </section>
+        </div>
+      </div>
+    </div>
+     <!-- Footer -->
+    <footer class="footer d-flex align-items-center justify-content-start p-3 mt-10 w-75 mx-auto text-dark font-bold">
+      Copyright
+    </footer>
   </main>
+  <!-- Hidden Views -->
+  <div class="d-none">
+    <!-- Add Page -->
+    <section id="add-section">
+      <header>
+        <h1 class="my-2 text-center"> Add a new book </h1>
+      </header>
+      <div class="d-flex align-items-center justify-content-center flex-column"> 
+        <form id="form">
+          <div class="form-group my-3">
+          <input type="text" name="title" id="title" class="form-control" placeholder="Title">
+          </div>
+          <div class="form-group my-3">
+            <input type="text" name="author" id="author" class="form-control" placeholder="Author">
+          </div>
+          <div class="form-group my-3 d-flex align-items-center justify-content-end">
+            <input type="submit" value="Add" id="add" class="button border-black">
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Contact Page -->
+    <section id="contact-section">
+      <header>
+        <h1 class="mt-2 mb-5 text-center"> Contact Information </h1>
+      </header>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex align-items-center flex-column">
+            <p class="font-normal h4">
+              Do you have any questions or you just want to say "Hello"?
+              <br>
+              You can reach out to us! 
+            </p>
+            <ul class="mt-2">
+              <li class="navItem font-normal text-dark ps-2 me-25"><strong> Our email:        </strong> someGmail@gmail.com    </li>
+              <li class="navItem font-normal text-dark ps-2 me-25"><strong> Our phone number: </strong> +5804247894512.        </li>
+              <li class="navItem font-normal text-dark ps-2 me-25"><strong> Our Adrress:      </strong> The edge of the world. </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <script src="js/book_list.js"></script>
+  <script src="js/luxon.js"></script>
+  <script>
+    let DateTime = luxon.DateTime;
+    let today = DateTime.local();
+    let time = document.getElementById('time');
+    time.textContent = today.toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+  </script>
 </body>
 </html>
+
