@@ -13,7 +13,8 @@
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
           crossorigin="anonymous">
   </script>
-  <script src="https://kit.fontawesome.com/9f43e9dbcb.js" crossorigin="anonymous"></script> 
+  <script src="https://kit.fontawesome.com/9f43e9dbcb.js" crossorigin="anonymous"></script>
+  
   <title>Awesome Books</title>
 </head>
 
@@ -51,6 +52,9 @@
             </div>
           </ul>
         </nav>
+        <div class="d-flex align-items-center justify-content-end mx-auto w-75">
+          <p id="time" class="text-dark font-bold"></p>
+        </div>
         <!-- Info Message -->
         <div id="message" class="width mx-auto"></div>
       </div>
@@ -120,7 +124,13 @@
     </section>
   </div>
   <script src="js/book_list.js"></script>
-  
+  <script src="js/luxon.min.js"></script>
+  <script>
+    let DateTime = luxon.DateTime;
+    let today = DateTime.local();
+    let time = document.getElementById('time');
+    time.textContent = today.toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+  </script>
 </body>
 </html>
 
