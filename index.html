@@ -19,29 +19,68 @@
 
 <body>
   <!-- Layout -->
-  <main class="container-fluid d-flex align-items-center justify-content-center">
-    <div class="row mx-auto">
+  <main class="container-fluid">
+    <div class="row">
       <div class="col-md-12">
+        <!-- Navbar -->
+        <nav id="nav">
+          <ul class="navbar d-flex align-items-center justify-content-between list-unstyled p-2 mt-3 w-75 mx-auto">
+            <div class="d-flex align-items-center justify-content-center">
+              <li class="navItem p-2">
+                <a href="#" class="navLink text-dark text-decoration-none font-bold">
+                  Awesome books
+                </a>
+              </li>
+            </div>
+            <div class="d-flex align-items-center justify-content-around">
+              <li class="navItem border-dark-right py-2 px-3">
+                <a href="#" class="navLink text-decoration-none font-bold" id="listLink">
+                  List
+                </a>
+              </li>
+              <li class="navItem border-dark-right py-2 px-3">
+                <a href="#" class="navLink text-decoration-none font-bold" id="addLink">
+                  Add new
+                </a>
+              </li>
+              <li class="navItem py-2 px-3">
+                <a href="#" class="navLink text-decoration-none font-bold" id="contactLink">
+                  Contact
+                </a>
+              </li>
+            </div>
+          </ul>
+        </nav>
         <!-- Info Message -->
-        <div id="message"></div>
+        <div id="message" class="width mx-auto"></div>
+      </div>
+    </div>
+    <!-- Main Views -->
+    <div class="row">
+      <div class="col-md-12">
         <div id="main-content">
           <!-- Main Page -->
           <section id="list-section">
             <header>
-              <h1 class="my-4 text-center"> All awesome books </h1>
+              <h1 class="mb-4 mt-2 text-center"> All awesome books </h1>
             </header>
             <!-- Books List -->
-            <ul id="list" class="list-unstyled rounded"></ul>
+            <ul id="list" class="list-unstyled rounded mx-auto width"></ul>
           </section>
         </div>
       </div>
-    </div> 
+    </div>
+     <!-- Footer -->
+    <footer class="footer d-flex align-items-center justify-content-start p-3 mt-10 w-75 mx-auto text-dark font-bold">
+      Copyright
+    </footer>
   </main>
+  <!-- Hidden Views -->
   <div class="d-none">
     <!-- Add Page -->
     <section id="add-section">
       <header>
-        <h1 class="my-4 text-center"> Add a new book </h1>
+        <h1 class="my-2 text-center"> Add a new book </h1>
       </header>
       <div class="d-flex align-items-center justify-content-center flex-column"> 
         <form id="form">
@@ -60,8 +99,24 @@
     <!-- Contact Page -->
     <section id="contact-section">
       <header>
-        <h1 class="my-4 text-center"> Contact Information </h1>
+        <h1 class="mt-2 mb-5 text-center"> Contact Information </h1>
       </header>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex align-items-center flex-column">
+            <p class="font-normal h4">
+              Do you have any questions or you just want to say "Hello"?
+              <br>
+              You can reach out to us! 
+            </p>
+            <ul class="mt-2">
+              <li class="navItem font-normal text-dark ps-2 me-25"><strong> Our email:        </strong> someGmail@gmail.com    </li>
+              <li class="navItem font-normal text-dark ps-2 me-25"><strong> Our phone number: </strong> +5804247894512.        </li>
+              <li class="navItem font-normal text-dark ps-2 me-25"><strong> Our Adrress:      </strong> The edge of the world. </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
   <script src="js/book_list.js"></script>

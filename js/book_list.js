@@ -1,5 +1,4 @@
 // Variables
-
 const message = document.getElementById('message');
 const bookList = document.getElementById('list');
 const form = document.getElementById('form');
@@ -10,10 +9,10 @@ const mainContent = document.getElementById('main-content');
 const addSection = document.getElementById('add-section');
 const listSection = document.getElementById('list-section');
 const contactSection = document.getElementById('contact-section');
+const nav = document.getElementById('nav');
 let books = [];
 
 // Constructor
-
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -22,7 +21,6 @@ class Book {
 }
 
 // Classes
-
 class BookList {
   static fade() {
     setTimeout(() => { message.style = 'display: block; transition: all ease 1s; '; }, 0);
@@ -58,10 +56,10 @@ class BookList {
     const li = document.createElement('li');
     li.classList.add('font-bold', 'px-2', 'py-2', 'd-flex', 'align-items-center', 'justify-content-between');
     li.innerHTML = `<div class="font-bold text-dark d-flex flex-column">
-                        <span><i class="fa fa-book pe-1 mb-1"></i> Title:     <span class="font-normal"> ${title}  </span> </span>
-                        <span class=""><i class="fa fa-user pe-1"></i> Auhor: <span class="font-normal"> ${author} </span> </span>
-                      </div>
-                      <button class='remove button border-black rounded'> Remove </button>`;
+                      <span><i class="fa fa-book pe-1 mb-1"></i>     Title: <span class="font-normal"> ${title}  </span> </span>
+                      <span class=""><i class="fa fa-user pe-1"></i> Auhor: <span class="font-normal"> ${author} </span> </span>
+                    </div>
+                    <button class='remove button border-black rounded'> Remove </button>`;
     bookList.appendChild(li);
     li.parentNode.classList.add('border-black');
   }
@@ -89,12 +87,15 @@ class ShowViews {
   static showView(e) {
     switch (e.target) {
       case listLink:
+        ShowViews.clear();
         mainContent.appendChild(listSection);
         break;
       case addLink:
+        ShowViews.clear();
         mainContent.appendChild(addSection);
         break;
       case contactLink:
+        ShowViews.clear();
         mainContent.appendChild(contactSection);
         break;
       default:
@@ -104,7 +105,6 @@ class ShowViews {
 }
 
 // Event functions
-
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const bookTitle = document.getElementById('title').value;
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Storage.load();
 });
 
-document.addEventListener('click', (e) => {
-  ShowViews.clear();
+nav.addEventListener('click', (e) => {
+  e.preventDefault();
   ShowViews.showView(e);
 });
