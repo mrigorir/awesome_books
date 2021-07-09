@@ -1,4 +1,3 @@
-
 // Variables
 const message = document.getElementById('message');
 const bookList = document.getElementById('list');
