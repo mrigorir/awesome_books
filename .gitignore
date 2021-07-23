@@ -107,5 +107,5 @@ dist
 .tern-port
 
 # Github category language
-*.css linguist-detectable=false
+*.html linguist-detectable=false
 *.js linguist-detectable=true
